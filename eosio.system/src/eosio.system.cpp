@@ -118,6 +118,11 @@ namespace eosiosystem {
       set_privileged( account, ispriv );
    }
 
+   void system_contract::setalimits( account_name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight ) {
+      require_auth( _self );
+      set_resource_limits( account, ram_bytes, net_weight, cpu_weight );
+   }
+
    void system_contract::rmvproducer( account_name producer ) {
       require_auth( _self );
       auto prod = _producers.find( producer );
@@ -229,4 +234,6 @@ EOSIO_ABI( eosiosystem::system_contract,
      (regproducer)(unregprod)(voteproducer)(regproxy)
      // producer_pay.cpp
      (onblock)(claimrewards)
+     // setalimits.cpp
+     (setalimits)
 )
