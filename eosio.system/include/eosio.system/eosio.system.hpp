@@ -232,6 +232,8 @@ namespace eosiosystem {
 
          void setpriv( account_name account, uint8_t ispriv );
 
+         void setalimits( account_name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight );
+
          void rmvproducer( account_name producer );
 
          void bidname( account_name bidder, account_name newname, asset bid );
