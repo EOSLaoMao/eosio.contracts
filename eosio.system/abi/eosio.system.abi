@@ -40,6 +40,13 @@
         {"name":"bid", "type":"asset"}
       ]
     },{
+      "name": "bidrefund",
+      "base": "",
+      "fields": [
+        {"name":"bidder",  "type":"account_name"},
+        {"name":"newname", "type":"account_name"}
+      ]
+    },{
       "name": "permission_level_weight",
       "base": "",
       "fields": [
@@ -70,6 +77,15 @@
         {"name":"name",    "type":"account_name"},
         {"name":"owner",   "type":"authority"},
         {"name":"active",  "type":"authority"}
+      ]
+    },{
+      "name": "setacntlim",
+      "base": "",
+      "fields": [
+         {"name":"account", "type":"account_name"},
+         {"name":"ram", "type":"int64"},
+         {"name":"net", "type":"int64"},
+         {"name":"cpu", "type":"int64"}
       ]
     },{
       "name": "setcode",
@@ -425,6 +441,10 @@
      "type": "newaccount",
      "ricardian_contract": ""
    },{
+     "name": "setacntlim",
+     "type": "setacntlim",
+     "ricardian_contract": ""
+   },{
      "name": "setcode",
      "type": "setcode",
      "ricardian_contract": ""
@@ -495,6 +515,10 @@
    },{
       "name": "bidname",
       "type": "bidname",
+      "ricardian_contract": ""
+   },{
+      "name": "bidrefund",
+      "type": "bidrefund",
       "ricardian_contract": ""
    },{
       "name": "unregprod",
