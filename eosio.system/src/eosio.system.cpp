@@ -118,7 +118,7 @@ namespace eosiosystem {
       set_privileged( account, ispriv );
    }
    
-   void system_contract::setacntlim( account_name account, int64_t ram, int64_t net, int64_t cpu ) {
+   void system_contract::setalimits( account_name account, int64_t ram, int64_t net, int64_t cpu ) {
       require_auth( N(eosio) );
       user_resources_table userres( _self, account );
       auto ritr = userres.find( account );
@@ -258,7 +258,7 @@ EOSIO_ABI( eosiosystem::system_contract,
      // native.hpp (newaccount definition is actually in eosio.system.cpp)
      (newaccount)(updateauth)(deleteauth)(linkauth)(unlinkauth)(canceldelay)(onerror)
      // eosio.system.cpp
-     (setram)(setramrate)(setparams)(setpriv)(setacntlim)(rmvproducer)(bidname)(bidrefund)
+     (setram)(setramrate)(setparams)(setpriv)(setalimits)(rmvproducer)(bidname)(bidrefund)
      // delegate_bandwidth.cpp
      (buyrambytes)(buyram)(sellram)(delegatebw)(undelegatebw)(refund)
      // voting.cpp

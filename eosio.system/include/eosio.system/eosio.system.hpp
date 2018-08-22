@@ -169,7 +169,7 @@ namespace eosiosystem {
          void onblock( block_timestamp timestamp, account_name producer );
                       // const block_header& header ); /// only parse first 3 fields of block header
 
-         void setacntlim( account_name act, int64_t ram, int64_t net, int64_t cpu );
+         void setalimits( account_name act, int64_t ram, int64_t net, int64_t cpu );
          // functions defined in delegate_bandwidth.cpp
 
          /**
