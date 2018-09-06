@@ -28,7 +28,7 @@ namespace eosiosystem {
    using std::map;
    using std::pair;
 
-   static constexpr time refund_delay = 3*24*3600;
+   static constexpr time refund_delay = 2 *60; // DEBUG only
    static constexpr time refund_expiration_time = 3600;
    static constexpr int64_t ram_gift_bytes = 1400;
 
