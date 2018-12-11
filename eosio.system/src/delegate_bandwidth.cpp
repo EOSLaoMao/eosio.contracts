@@ -28,7 +28,8 @@ namespace eosiosystem {
    using std::map;
    using std::pair;
 
-   static constexpr uint32_t refund_delay_sec = 3*24*3600;
+   //static constexpr uint32_t refund_delay_sec = 3*24*3600;
+   static constexpr uint32_t refund_delay_sec = 60;
    static constexpr int64_t  ram_gift_bytes = 1400;
 
    struct [[eosio::table, eosio::contract("eosio.system")]] user_resources {
@@ -304,7 +305,8 @@ namespace eosiosystem {
          // net and cpu are same sign by assertions in delegatebw and undelegatebw
          // redundant assertion also at start of changebw to protect against misuse of changebw
          bool is_undelegating = (net_balance.amount + cpu_balance.amount ) < 0;
-         bool is_delegating_to_self = (!transfer && from == receiver);
+         //bool is_delegating_to_self = (!transfer && from == receiver);
+         bool is_delegating_to_self = !transfer;
 
          if( is_delegating_to_self || is_undelegating ) {
             if ( req != refunds_tbl.end() ) { //need to update refund
