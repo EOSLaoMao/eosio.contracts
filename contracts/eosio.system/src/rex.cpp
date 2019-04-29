@@ -1009,7 +1009,10 @@ namespace eosiosystem {
       const uint32_t num_of_maturity_buckets = 5;
       static const uint32_t now = current_time_point_sec().utc_seconds;
       static const uint32_t r   = now % seconds_per_day;
+      /**
       static const time_point_sec rms{ now - r + num_of_maturity_buckets * seconds_per_day };
+      **/
+      static const time_point_sec rms{ now - r };
       return rms;
    }
 
